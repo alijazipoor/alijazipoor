@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>سامانه مدیریت تعمیرات نت بازار</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;400;700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Vazirmatn', sans-serif;
+        background-color: #09090b; /* Dark black background */
+        color: #f4f4f5;
+        margin: 0;
+        overflow-x: hidden;
+      }
+      
+      /* Global Loader Styles */
+      #global-loader {
+        position: fixed;
+        inset: 0;
+        background-color: #09090b;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        transition: opacity 0.8s ease-out, visibility 0.8s;
+      }
+      
+      .loader-content {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .loader-text {
+        font-weight: 900;
+        font-size: 2.5rem;
+        color: white;
+        letter-spacing: -0.05em;
+        margin-bottom: 8px;
+      }
+      
+      .loader-subtext {
+        color: #f97316;
+        font-size: 1rem;
+        font-weight: 700;
+        opacity: 0.8;
+      }
+
+      .loading-bar-container {
+        width: 220px;
+        height: 4px;
+        background: #18181b;
+        border-radius: 10px;
+        margin-top: 32px;
+        overflow: hidden;
+      }
+      
+      .loading-bar-fill {
+        height: 100%;
+        background: #f97316;
+        width: 0%;
+        animation: fill-bar 1.5s ease-in-out forwards;
+      }
+      
+      @keyframes fill-bar {
+        0% { width: 0%; }
+        100% { width: 100%; }
+      }
+
+      @media print {
+        .no-print {
+          display: none !important;
+        }
+        .print-only {
+          display: block !important;
+        }
+        body {
+          background-color: white;
+          color: black;
+        }
+      }
+      .print-only {
+        display: none;
+      }
+      
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #18181b;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #3f3f46;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #f97316;
+      }
+      
+      @keyframes fade-in {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .animate-fade-in {
+        animation: fade-in 0.4s ease-out forwards;
+      }
+      
+      @keyframes bounce-slow {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-5px); }
+      }
+      .animate-bounce-slow {
+        animation: bounce-slow 3s ease-in-out infinite;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "@google/genai": "https://esm.sh/@google/genai@^1.41.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/"
+  }
+}
+</script>
+</head>
+  <body>
+    <!-- Global Loader Screen -->
+    <div id="global-loader">
+      <div class="loader-content">
+        <div class="loader-text">نت بازار</div>
+        <div class="loader-subtext">در حال اتصال به سامانه هوشمند...</div>
+        <div class="loading-bar-container">
+          <div class="loading-bar-fill"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="root"></div>
+  </body>
+</html>
